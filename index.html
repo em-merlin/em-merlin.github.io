@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERLIN - Multimodal LLM for EM Signals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Google Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #202124;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .authors {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .authors a {
+            color: #1a73e8;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .affiliations {
+            text-align: center;
+            font-size: 0.9em;
+            color: #5f6368;
+            margin-bottom: 30px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn i { margin-right: 8px; }
+        .btn:hover { background-color: #1a73e8; transform: translateY(-2px); }
+        .btn.disabled { background-color: #ccc; cursor: not-allowed; }
+        
+        .section-title {
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .abstract-text {
+            text-align: justify;
+            font-size: 1.05em;
+            color: #444;
+        }
+        .hero-image {
+            width: 100%;
+            background-color: #f1f3f4;
+            border: 2px dashed #bdc1c6;
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #5f6368;
+            margin: 30px 0;
+            box-sizing: border-box;
+        }
+        .highlight { font-weight: bold; color: #1a73e8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MERLIN: Building Low-SNR Robust Multimodal LLMs for Electromagnetic Signals</h1>
+
+    <div class="authors">
+        <a href="#">Junyu Shen*</a>, <a href="#">Zhendong She*</a>, <a href="#">Chenghanyu Zhang</a>, <a href="#">Yuchuang Sun</a>, 
+        <a href="#">Luqing Luo</a>, <a href="#">Dingwei Tan</a>, <a href="#">Zonghao Guo</a>, <a href="#">Bo Guo</a>, <a href="#">Zehua Han</a>, 
+        <a href="#">Wupeng Xie</a>, <a href="#">Yaxin Mu</a>, <a href="#">Peng Zhang</a>, <a href="#">Peipei Li</a>, <a href="#">Fengxiang Wang</a>, 
+        <a href="#">Yangang Sun†</a>, <a href="#">Maosong Sun</a>
+    </div>
+    
+    <div class="affiliations">
+        Tsinghua University | Beijing University of Posts and Telecommunications | Tianjin University | HKUST (Guangzhou) <br> 
+        National University of Defense Technology | Beihang University
+    </div>
+
+    <div class="button-group">
+        <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Paper (Pending)</a>
+        <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+        <a href="#" class="btn"><i class="fas fa-database"></i> Data (EM-100K)</a>
+        <a href="#" class="btn"><i class="fas fa-cube"></i> Model</a>
+    </div>
+
+    <div class="hero-image">
+        <i class="fas fa-image fa-3x" style="margin-bottom: 15px;"></i><br>
+        <strong>[ Teaser Image Placeholder ]</strong><br>
+        (请在 GitHub 仓库中上传你的 Figure 1，然后用 <code>&lt;img src="你的图片名.png" width="100%"&gt;</code> 替换这个 div 模块)
+    </div>
+
+    <h2 class="section-title">Abstract</h2>
+    <div class="abstract-text">
+        <p>The paradigm of Multimodal Large Language Models (MLLMs) offers a promising blueprint for advancing the electromagnetic (EM) domain. However, fully realizing the MLLM potential requires overcoming three main challenges: (1) <strong>Data scarcity</strong> of high-quality paired EM signals and text, (2) the <strong>absence of comprehensive benchmarks</strong>, and (3) critical performance degradation in <strong>low Signal-to-Noise Ratio (SNR) environments</strong>.</p>
+        
+        <p>To address these challenges, we introduce a tripartite contribution:</p>
+        <ul>
+            <li><span class="highlight">EM-100k:</span> A large-scale dataset comprising over 100,000 EM signal-text pairs.</li>
+            <li><span class="highlight">EM-Bench:</span> The most comprehensive benchmark featuring diverse downstream tasks from perception to reasoning (over 4,200 QA pairs).</li>
+            <li><span class="highlight">MERLIN:</span> A novel two-stage training framework explicitly designed to enhance model robustness in challenging low-SNR environments via feature-level knowledge distillation.</li>
+        </ul>
+        <p>Comprehensive experiments validate that MERLIN achieves state-of-the-art performance on EM-Bench and exhibits remarkable robustness in noisy conditions.</p>
+    </div>
+</div>
+
+</body>
+</html>
