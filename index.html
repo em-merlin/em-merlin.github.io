@@ -30,6 +30,21 @@
             margin-bottom: 20px;
             line-height: 1.2;
         }
+        /* CVPR 高光徽章样式 */
+        .venue-badge {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .venue-badge span {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 1px solid #1a73e8;
+            display: inline-block;
+        }
         .authors {
             text-align: center;
             font-size: 1.1em;
@@ -51,7 +66,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .btn {
             display: inline-flex;
@@ -66,21 +81,40 @@
         }
         .btn i { margin-right: 8px; }
         .btn:hover { background-color: #1a73e8; transform: translateY(-2px); }
-        .btn.disabled { background-color: #ccc; cursor: not-allowed; }
+        /* 针对还未准备好的按钮置灰 */
+        .btn.disabled { background-color: #9aa0a6; cursor: not-allowed; }
+        .btn.disabled:hover { background-color: #9aa0a6; transform: none; }
         
+        /* 简单的新闻发布提示 */
+        .news-alert {
+            text-align: center;
+            color: #d93025;
+            font-size: 0.95em;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
         .section-title {
             font-size: 1.8em;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
-            margin-top: 40px;
+            margin-top: 50px;
             margin-bottom: 20px;
+            color: #202124;
         }
         .abstract-text {
             text-align: justify;
             font-size: 1.05em;
             color: #444;
         }
-        .hero-image {
+        .content-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        .image-placeholder {
             width: 100%;
             background-color: #f1f3f4;
             border: 2px dashed #bdc1c6;
@@ -88,7 +122,7 @@
             padding: 60px 20px;
             text-align: center;
             color: #5f6368;
-            margin: 30px 0;
+            margin: 20px 0;
             box-sizing: border-box;
         }
         .highlight { font-weight: bold; color: #1a73e8; }
@@ -99,6 +133,10 @@
 <div class="container">
     <h1>MERLIN: Building Low-SNR Robust Multimodal LLMs for Electromagnetic Signals</h1>
 
+    <div class="venue-badge">
+        <span>🔥 Accepted to CVPR</span>
+    </div>
+
     <div class="authors">
         <a href="#">Junyu Shen*</a>, <a href="#">Zhendong She*</a>, <a href="#">Chenghanyu Zhang</a>, <a href="#">Yuchuang Sun</a>, 
         <a href="#">Luqing Luo</a>, <a href="#">Dingwei Tan</a>, <a href="#">Zonghao Guo</a>, <a href="#">Bo Guo</a>, <a href="#">Zehua Han</a>, 
@@ -107,22 +145,23 @@
     </div>
     
     <div class="affiliations">
-        Tsinghua University | Beijing University of Posts and Telecommunications | Tianjin University | HKUST (Guangzhou) <br> 
-        National University of Defense Technology | Beihang University
+        Tsinghua University | Beijing University of Posts and Telecommunications | Tianjin University | IMECAS | HKUST (Guangzhou) <br> 
+        National University of Defense Technology | Beihang University | Beijing Information Science and Technology University <br>
+	Artificial Intelligence Institute of China Electronics Technology Group Corporation
     </div>
 
     <div class="button-group">
-        <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Paper (Pending)</a>
-        <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
-        <a href="#" class="btn"><i class="fas fa-database"></i> Data (EM-100K)</a>
-        <a href="#" class="btn"><i class="fas fa-cube"></i> Model</a>
+        <a href="https://arxiv.org/abs/2603.08174" class="btn"><i class="fas fa-file-pdf"></i> arXiv Paper</a>
+        <a href="#" class="btn disabled"><i class="fab fa-github"></i> Code (Coming Soon)</a>
+        <a href="#" class="btn disabled"><i class="fas fa-database"></i> Data (Coming Soon)</a>
+        <a href="#" class="btn disabled"><i class="fas fa-cube"></i> Model (Coming Soon)</a>
     </div>
 
-    <div class="hero-image">
-        <i class="fas fa-image fa-3x" style="margin-bottom: 15px;"></i><br>
-        <strong>[ Teaser Image Placeholder ]</strong><br>
-        (请在 GitHub 仓库中上传你的 Figure 1，然后用 <code>&lt;img src="你的图片名.png" width="100%"&gt;</code> 替换这个 div 模块)
+    <div class="news-alert">
+        <i class="fas fa-info-circle"></i> We are currently cleaning up the code, dataset, benchmark, and model weights. Everything will be released before 26.03.27!
     </div>
+
+    <img src="abstract.svg" alt="Overview of MERLIN" class="content-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
 
     <h2 class="section-title">Abstract</h2>
     <div class="abstract-text">
@@ -130,12 +169,26 @@
         
         <p>To address these challenges, we introduce a tripartite contribution:</p>
         <ul>
-            <li><span class="highlight">EM-100k:</span> A large-scale dataset comprising over 100,000 EM signal-text pairs.</li>
+            <li><span class="highlight">EM-134K:</span> A large-scale dataset comprising over 134K EM signal-text pairs.</li>
             <li><span class="highlight">EM-Bench:</span> The most comprehensive benchmark featuring diverse downstream tasks from perception to reasoning (over 4,200 QA pairs).</li>
             <li><span class="highlight">MERLIN:</span> A novel two-stage training framework explicitly designed to enhance model robustness in challenging low-SNR environments via feature-level knowledge distillation.</li>
         </ul>
         <p>Comprehensive experiments validate that MERLIN achieves state-of-the-art performance on EM-Bench and exhibits remarkable robustness in noisy conditions.</p>
     </div>
+
+    <h2 class="section-title">EM-Bench: Comprehensive Evaluation Dimensions</h2>
+    <p style="text-align: center; color: #555; margin-bottom: 15px;">The hierarchical evaluation framework of EM-Bench, which systematically assesses the perception and reasoning capabilities of MLLMs on electromagnetic IQ signals across <strong>3 levels</strong> and <strong>14 sub-tasks</strong></p>
+    <img src="EM-Bench.png" alt="MERLIN Framework" class="content-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+    <h2 class="section-title">MERLIN Framework</h2>
+        <p style="text-align: center; color: #444; font-size: 1.05em; margin-bottom: 15px;">
+            The architecture and training framework of MERLIN. (1) The baseline model architecture consists of a Signal Encoder, a Projector, and a LLM. (2) The knowledge distillation framework enhances low-SNR robustness by using a frozen high-SNR teacher model to guide a student model. (3) The Denoising Subspace Module (DSM) facilitates effective distillation by projecting noisy signal features into a clean, noise-invariant feature space.
+        <img src="MERLIN-Framework.svg" alt="MERLIN Framework Architecture" class="content-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+    <h2 class="section-title">Evaluation Results</h2>
+    <p style="text-align: center; color: #555; margin-bottom: 15px;">Main results on EM-Bench. We compare MERLIN with leading proprietary and open-source LLMs. All baseline LLMs process EM signals in a textualized format. The best results are highlighted in <strong>bold</strong>. ”<strong>PE</strong>” denotes Parameter Estimation tasks. Its sub-tasks denote <strong>BW</strong>: Bandwidth, <strong>DC</strong>: Duty Cycle, <strong>NP</strong>: Num. Pulses, <strong>PRF</strong>: Pulse Rep. Freq, <strong>PW</strong>: Pulse Width. MERLIN achieves state-of-the-art performance across both perception and reasoning tasks.</p>
+    <img src="experiments.png" alt="MERLIN Framework" class="content-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
 </div>
 
 </body>
